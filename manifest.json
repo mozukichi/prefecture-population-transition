@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "都道府県別人口",
+  "name": "都道府県別総人口推移グラフ",
   "icons": [
     {
       "src": "favicon.ico",
