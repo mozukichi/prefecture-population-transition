@@ -18,8 +18,10 @@ export const PrefectureSelector: React.FC<Props> = (props) => {
   }
   const prefectureCheckboxes = props.prefectures.map((prefecture) => (
     <React.Fragment key={prefecture.prefCode}>
-      <label>{prefecture.prefName}</label>
-      <input type="checkbox"></input>
+      <label>
+        {prefecture.prefName}
+        <input type="checkbox" />
+      </label>
     </React.Fragment>
   ));
   return <div>{prefectureCheckboxes}</div>;
