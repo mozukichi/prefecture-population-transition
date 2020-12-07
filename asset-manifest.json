@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/prefectures-population-transition/static/css/main.8c8b27cf.chunk.css",
-    "main.js": "/prefectures-population-transition/static/js/main.5fd0b09b.chunk.js",
-    "main.js.map": "/prefectures-population-transition/static/js/main.5fd0b09b.chunk.js.map",
-    "runtime-main.js": "/prefectures-population-transition/static/js/runtime-main.6b0187eb.js",
-    "runtime-main.js.map": "/prefectures-population-transition/static/js/runtime-main.6b0187eb.js.map",
-    "static/js/2.f98e5251.chunk.js": "/prefectures-population-transition/static/js/2.f98e5251.chunk.js",
-    "static/js/2.f98e5251.chunk.js.map": "/prefectures-population-transition/static/js/2.f98e5251.chunk.js.map",
-    "static/js/3.68a23f47.chunk.js": "/prefectures-population-transition/static/js/3.68a23f47.chunk.js",
-    "static/js/3.68a23f47.chunk.js.map": "/prefectures-population-transition/static/js/3.68a23f47.chunk.js.map",
+    "main.js": "/prefectures-population-transition/static/js/main.c2e0a57d.chunk.js",
+    "main.js.map": "/prefectures-population-transition/static/js/main.c2e0a57d.chunk.js.map",
+    "runtime-main.js": "/prefectures-population-transition/static/js/runtime-main.e8fc259a.js",
+    "runtime-main.js.map": "/prefectures-population-transition/static/js/runtime-main.e8fc259a.js.map",
+    "static/js/2.405581b0.chunk.js": "/prefectures-population-transition/static/js/2.405581b0.chunk.js",
+    "static/js/2.405581b0.chunk.js.map": "/prefectures-population-transition/static/js/2.405581b0.chunk.js.map",
+    "static/js/3.f2dc5e73.chunk.js": "/prefectures-population-transition/static/js/3.f2dc5e73.chunk.js",
+    "static/js/3.f2dc5e73.chunk.js.map": "/prefectures-population-transition/static/js/3.f2dc5e73.chunk.js.map",
     "index.html": "/prefectures-population-transition/index.html",
     "static/css/main.8c8b27cf.chunk.css.map": "/prefectures-population-transition/static/css/main.8c8b27cf.chunk.css.map",
-    "static/js/2.f98e5251.chunk.js.LICENSE.txt": "/prefectures-population-transition/static/js/2.f98e5251.chunk.js.LICENSE.txt"
+    "static/js/2.405581b0.chunk.js.LICENSE.txt": "/prefectures-population-transition/static/js/2.405581b0.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.6b0187eb.js",
-    "static/js/2.f98e5251.chunk.js",
+    "static/js/runtime-main.e8fc259a.js",
+    "static/js/2.405581b0.chunk.js",
     "static/css/main.8c8b27cf.chunk.css",
-    "static/js/main.5fd0b09b.chunk.js"
+    "static/js/main.c2e0a57d.chunk.js"
   ]
 }
