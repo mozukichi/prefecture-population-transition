@@ -1,4 +1,5 @@
 import React, { useState, ChangeEvent } from "react";
+import "./Prefecture.css";
 
 export type Prefecture = {
   prefCode: number;
@@ -49,16 +50,17 @@ export const PrefectureSelector: React.FC<Props> = (props) => {
 
   const checkboxes = props.prefectures?.map((pref) => (
     <React.Fragment key={pref.prefCode}>
-      <label>
-        {pref.prefName}
+      <label className="Prefecture-checkbox">
         <input
           type="checkbox"
           onChange={handleChange}
           value={pref.prefCode}
           name={pref.prefName}
         />
+        <span>{pref.prefName}</span>
       </label>
     </React.Fragment>
   ));
-  return <div>{checkboxes}</div>;
+
+  return <div className="Prefecture-container">{checkboxes}</div>;
 };
