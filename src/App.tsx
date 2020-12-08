@@ -6,6 +6,7 @@ import {
   ResasPopulationResponse,
 } from "./resas";
 import { Prefecture, PrefectureSelector } from "./Prefecture";
+import { LineGraph } from "./LineGraph";
 import "./App.css";
 
 /**
@@ -64,7 +65,9 @@ const App: React.FC = () => {
       <PrefectureSelector
         prefectures={prefectures}
         onChange={handleChangePrefectures}
-      ></PrefectureSelector>
+      />
+
+      {graphData !== null ? <LineGraph data={graphData} /> : null}
     </div>
   );
 };
