@@ -1,3 +1,7 @@
+label {
+  color: black;
+}
+
 .Prefecture-container {
   display: flex;
   flex-wrap: wrap;
