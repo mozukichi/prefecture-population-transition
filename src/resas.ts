@@ -5,12 +5,12 @@ const RESAS_API_KEY = "1WAgEHBX1RahNCuFeYHOn8xVh9mnsQHaqjE2wcXs";
 export interface ResasPrefecturesResponse {
   message: string | null;
   result: Prefecture[];
-};
+}
 
 export interface ResasPopulationData {
   label: string;
   data: { year: number; value: number }[];
-};
+}
 
 export interface ResasPopulationResponse {
   message: string | null;
@@ -18,7 +18,7 @@ export interface ResasPopulationResponse {
     boundaryYear: number;
     data: ResasPopulationData[];
   };
-};
+}
 
 /**
  * RESAS-API から都道府県一覧のデータを取得

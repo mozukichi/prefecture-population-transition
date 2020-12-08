@@ -4,7 +4,7 @@ import "./Prefecture.css";
 export interface Prefecture {
   prefCode: number;
   prefName: string;
-};
+}
 
 type PrefectureState = (checks: number[]) => void;
 
@@ -14,7 +14,7 @@ interface Props {
 
   // 選択中の都道府県を変更したときのイベント
   onChange?: PrefectureState;
-};
+}
 
 /**
  * 都道府県チェックボックスリスト
