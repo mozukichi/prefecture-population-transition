@@ -9,7 +9,10 @@ export interface Prefecture {
 type PrefectureState = (checks: number[]) => void;
 
 interface Props {
+  // 表示する都道府県一覧
   prefectures: Prefecture[];
+
+  // 選択中の都道府県を変更したときのイベント
   onChange?: PrefectureState;
 };
 
@@ -21,6 +24,7 @@ export const PrefectureSelector: React.FC<Props> = (props) => {
     return <p>Prefectures is nothing.</p>;
   }
 
+  // 都道府県のチェック状態
   const [state, setState] = useState(
     props.prefectures?.map((pref) => ({
       [pref.prefCode]: false,
@@ -45,6 +49,8 @@ export const PrefectureSelector: React.FC<Props> = (props) => {
     const checks = Object.entries(nextState)
       .filter(([, checked]) => checked)
       .map(([prefCode]) => Number(prefCode));
+
+    // 選択中の都道府県の変更イベント
     props.onChange?.(checks);
   };
 
