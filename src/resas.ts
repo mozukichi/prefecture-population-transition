@@ -2,17 +2,17 @@ import { Prefecture } from "./Prefecture";
 
 const RESAS_API_KEY = "1WAgEHBX1RahNCuFeYHOn8xVh9mnsQHaqjE2wcXs";
 
-export type ResasPrefecturesResponse = {
+export interface ResasPrefecturesResponse {
   message: string | null;
   result: Prefecture[];
 };
 
-export type ResasPopulationData = {
+export interface ResasPopulationData {
   label: string;
   data: { year: number; value: number }[];
 };
 
-export type ResasPopulationResponse = {
+export interface ResasPopulationResponse {
   message: string | null;
   result: {
     boundaryYear: number;

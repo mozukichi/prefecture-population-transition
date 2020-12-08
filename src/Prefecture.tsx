@@ -1,14 +1,14 @@
 import React, { useState, ChangeEvent } from "react";
 import "./Prefecture.css";
 
-export type Prefecture = {
+export interface Prefecture {
   prefCode: number;
   prefName: string;
 };
 
 type PrefectureState = (checks: number[]) => void;
 
-type Props = {
+interface Props {
   prefectures: Prefecture[];
   onChange?: PrefectureState;
 };
