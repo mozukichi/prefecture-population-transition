@@ -27,9 +27,8 @@ export const fetchResasPrefectures = async (): Promise<ResasPrefecturesResponse>
   const url = "https://opendata.resas-portal.go.jp/api/v1/prefectures";
   const response = await fetch(url, {
     method: "GET",
-    mode: "cors",
-    cache: "no-cache",
     headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
       "X-API-KEY": RESAS_API_KEY,
     },
   });
@@ -48,9 +47,8 @@ export const fetchResasPopulation = async (
   const url = `https://opendata.resas-portal.go.jp/api/v1/population/composition/perYear?${queryStr.toString()}`;
   const response = await fetch(url, {
     method: "GET",
-    mode: "cors",
-    cache: "no-cache",
     headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
       "X-API-KEY": RESAS_API_KEY,
     },
   });
