@@ -7,17 +7,15 @@ describe("prefecture test", () => {
     render(<PrefectureSelector prefectures={[]} />);
   });
 
-  const handleChange = () => {
-
-  };
-
   it("renders prefecture list", async () => {
     const prefectures = [
       { prefCode: 1, prefName: "北海道" },
       { prefCode: 2, prefName: "青森県" },
     ];
-    
-    const { container } = render(<PrefectureSelector prefectures={prefectures} onChange={handleChange}/>);
+
+    const { container } = render(
+      <PrefectureSelector prefectures={prefectures} />
+    );
 
     expect(await screen.findByText("北海道")).toBeInTheDocument();
     expect(await screen.findByText("青森県")).toBeInTheDocument();
