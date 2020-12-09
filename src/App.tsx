@@ -31,6 +31,11 @@ const App: React.FC = () => {
   // 選択中の都道府県が変更されたとき
   useEffect(() => {
     void (async () => {
+      if (selectedPrefs.length === 0) {
+        setGraphData(null);
+        return;
+      }
+
       // 選択されている全ての都道府県について RESAS-API から人口構成（推移）のデータを取得
       // レスポンス仕様: https://opendata.resas-portal.go.jp/docs/api/v1/population/composition/perYear.html
       const responses = await Promise.all(
