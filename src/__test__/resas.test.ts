@@ -1,5 +1,5 @@
 import { act } from "@testing-library/react";
-import { fetchResasPrefectures, fetchResasPopulation } from "./resas";
+import { fetchResasPrefectures, fetchResasPopulation } from "../resas";
 
 describe("RESAS-API test", () => {
   // 都道府県一覧のデータの取得
