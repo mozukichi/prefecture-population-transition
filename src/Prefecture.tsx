@@ -26,9 +26,11 @@ export const PrefectureSelector: React.FC<Props> = (props) => {
 
   // 都道府県のチェック状態
   const [state, setState] = useState(
-    props.prefectures?.map((pref) => ({
-      [pref.prefCode]: false,
-    }))
+    props.prefectures
+      ?.map((pref) => ({
+        [pref.prefCode]: false,
+      }))
+      .reduce((p, v) => ({ ...p, ...v }), {})
   );
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
