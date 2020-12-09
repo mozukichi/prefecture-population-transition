@@ -72,8 +72,13 @@ const App: React.FC = () => {
         onChange={handleChangePrefectures}
       />
 
-      <div style={{display: "flex", justifyContent: "center"}}>
-      {graphData !== null ? <LineGraph style={{width: "80%", height: "100%"}} data={graphData} /> : null}
+      <div className="App-graph-container">
+        {graphData !== null ? (
+          <LineGraph
+            style={{ width: "80%", height: "100%" }}
+            data={graphData}
+          />
+        ) : null}
       </div>
     </div>
   );
