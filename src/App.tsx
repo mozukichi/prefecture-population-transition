@@ -80,6 +80,10 @@ const App: React.FC = () => {
           />
         ) : null}
       </div>
+
+      <footer className="App-footer">
+        <p>Prefecture Population Transition</p>
+      </footer>
     </div>
   );
 };
