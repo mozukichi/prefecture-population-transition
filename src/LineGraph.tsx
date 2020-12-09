@@ -27,7 +27,7 @@ export const LineGraph: React.FC<Props> = (props) => {
   );
 
   return (
-    <div className="LineChart" style={props.style}>
+    <div className="LineChart" style={props.style} data-testid="linegraph">
       <ResponsiveContainer aspect={4 / 3}>
         <LineChart data={props.graphData}>
           <CartesianGrid strokeDasharray="3 3" />

@@ -27,9 +27,11 @@ const App: React.FC = () => {
       // RESAS-API から都道府県一覧のデータを取得
       const resasPrefs = await fetchResasPrefectures();
 
-      if (mounted.current && "result" in resasPrefs) {
-        setPrefectures(resasPrefs?.result);
+      if (!(mounted.current && "result" in resasPrefs)) {
+        return;
       }
+
+      setPrefectures(resasPrefs?.result);
     })();
 
     return () => {
@@ -52,14 +54,16 @@ const App: React.FC = () => {
       );
 
       // 選択中の都道府県名のリスト
-      const prefNames = selectedPrefs.map((prefCode) => {
-        const prefName = prefectures.find((pref) => pref.prefCode === prefCode)
-          ?.prefName;
-        return prefName ?? "";
-      });
+      const prefNames = prefectures.reduce<Record<string, string>>((p, v) => {
+        p[v.prefCode] = v.prefName;
+        return p;
+      }, {});
+      const checkedPrefNames = selectedPrefs.map(
+        (prefCode) => prefNames[prefCode]
+      );
 
       // RESAS-API の人口構成のデータをグラフデータに変換
-      const graphData = resasPopulationToGraphData(prefNames, responses);
+      const graphData = resasPopulationToGraphData(checkedPrefNames, responses);
 
       setGraphData(graphData);
     })();
@@ -120,15 +124,15 @@ const resasPopulationToGraphData = (
   const years = [
     ...new Set(totalData.flatMap((data) => data.map((record) => record.year))),
   ];
-
   // 総人口データの配列をグラフ用のデータに変換
   const graphData = years.map((year: number) => {
     const record: Record<string, number> = { 年: year };
     totalData.forEach((data, index) => {
       const value = data.find((datum) => datum.year === year)?.value;
-      if (value !== undefined) {
-        record[prefNames[index]] = value;
+      if (value === undefined) {
+        return;
       }
+      record[prefNames[index]] = value;
     });
     return record;
   });
