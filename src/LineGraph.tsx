@@ -35,12 +35,12 @@ export const LineGraph: React.FC<Props> = (props) => {
           <YAxis />
           <Tooltip />
           <Legend />
-          {seriesList.map((series) => (
+          {seriesList.map((series, index) => (
             <Line
               key={`series-${series}`}
               type="monotone"
               dataKey={series}
-              stroke="#000"
+              stroke={lineColor(index)}
             />
           ))}
         </LineChart>
@@ -48,3 +48,16 @@ export const LineGraph: React.FC<Props> = (props) => {
     </div>
   );
 };
+
+/**
+ * グラフの折れ線の色を取得
+ * @param index 色番号
+ * @return 色を表す文字列
+ */
+const lineColor = (index: number) => {
+  const base = index % 7;
+  const level = Math.floor(index / 7) / 7;
+  const h = 360 * (base % 7) / 7;
+  const l = 60 * level + 30;
+  return `hsl(${h},100%,${l}%)`;
+}
