@@ -1,25 +1,27 @@
 import { act } from "@testing-library/react";
-import fetchMock from "fetch-mock";
 import { fetchResasPrefectures, fetchResasPopulation } from "./resas";
 
 describe("RESAS-API test", () => {
+
   // 都道府県一覧のデータの取得
   it("prefectures", async () => {
-    fetchMock.get("https://opendata.resas-portal.go.jp/api/v1/prefectures", {
-      status: 200,
-      body: {
-        result: [
-          { prefCode: 1, prefName: "北海道" },
-          { prefCode: 2, prefName: "青森県" },
-        ],
-      },
-    });
+    const fakeResponse = {
+      result: [
+        { prefCode: 1, prefName: "北海道" },
+        { prefCode: 2, prefName: "青森県" },
+      ],
+    };
+  
+    jest.spyOn(global, "fetch").mockImplementationOnce(
+      () =>
+        Promise.resolve({
+          json: () => Promise.resolve(fakeResponse),
+        } as Response)
+    );
 
     await act(async () => {
-      expect(await fetchResasPrefectures()).toBeDefined();
+      expect(await fetchResasPrefectures()).toBe(fakeResponse);
     });
-
-    fetchMock.restore();
   });
 
   // 人口構成のデータの取得
@@ -46,15 +48,16 @@ describe("RESAS-API test", () => {
         },
       },
     };
-    fetchMock.get(
-      "https://opendata.resas-portal.go.jp/api/v1/population/composition/perYear?prefCode=1&cityCode=-",
-      fakeResponse
+
+    jest.spyOn(global, "fetch").mockImplementationOnce(
+      () =>
+        Promise.resolve({
+          json: () => Promise.resolve(fakeResponse),
+        } as Response)
     );
 
     await act(async () => {
-      expect(await fetchResasPopulation(1)).toBeDefined();
+      expect(await fetchResasPopulation(1)).toBe(fakeResponse);
     });
-
-    fetchMock.restore();
   });
 });
