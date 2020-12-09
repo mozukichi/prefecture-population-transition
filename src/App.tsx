@@ -15,9 +15,9 @@ import "./App.css";
 const App: React.FC = () => {
   const [prefectures, setPrefectures] = useState<Prefecture[]>([]);
   const [selectedPrefs, setSelectedPrefs] = useState<number[]>([]);
-  const [graphData, setGraphData] = useState<Record<string, number>[] | null>(
-    null
-  );
+  const [graphData, setGraphData] = useState<
+    Record<string, number | string>[] | null
+  >(null);
 
   // マウント時
   useEffect(() => {
