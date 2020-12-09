@@ -12,13 +12,13 @@ import {
 } from "recharts";
 
 interface Props {
-  data: Record<string, number>[];
+  graphData: Record<string, string | number>[];
   style?: CSS.Properties;
 }
 
 export const LineGraph: React.FC<Props> = (props) => {
   // 系列の洗い出し
-  const seriesList = props.data.reduce(
+  const seriesList = props.graphData.reduce(
     (p: string[], v) =>
       [
         ...new Set([...p, ...Object.keys(v).filter((key) => key !== "年")]),
@@ -29,7 +29,7 @@ export const LineGraph: React.FC<Props> = (props) => {
   return (
     <div className="LineChart" style={props.style}>
       <ResponsiveContainer aspect={4 / 3}>
-        <LineChart data={props.data}>
+        <LineChart data={props.graphData}>
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="年" />
           <YAxis />

@@ -76,7 +76,7 @@ const App: React.FC = () => {
         {graphData !== null ? (
           <LineGraph
             style={{ width: "80%", height: "100%" }}
-            data={graphData}
+            graphData={graphData}
           />
         ) : null}
       </div>
