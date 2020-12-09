@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import {
   fetchResasPrefectures,
   fetchResasPopulation,
@@ -19,13 +19,22 @@ const App: React.FC = () => {
     Record<string, number | string>[] | null
   >(null);
 
+  const mounted = useRef(true);
+
   // マウント時
   useEffect(() => {
     void (async () => {
       // RESAS-API から都道府県一覧のデータを取得
       const resasPrefs = await fetchResasPrefectures();
-      setPrefectures(resasPrefs?.result);
+
+      if (mounted.current && "result" in resasPrefs) {
+        setPrefectures(resasPrefs?.result);
+      }
     })();
+
+    return () => {
+      mounted.current = false;
+    }
   }, []);
 
   // 選択中の都道府県が変更されたとき
