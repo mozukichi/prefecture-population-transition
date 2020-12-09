@@ -1,6 +1,6 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import { LineGraph } from "./LineGraph";
+import { LineGraph } from "../LineGraph";
 
 test("renders linegraph", () => {
   const data: Record<string, number | string>[] = [
