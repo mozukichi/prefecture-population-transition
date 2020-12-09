@@ -34,7 +34,7 @@ const App: React.FC = () => {
 
     return () => {
       mounted.current = false;
-    }
+    };
   }, []);
 
   // 選択中の都道府県が変更されたとき

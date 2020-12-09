@@ -2,7 +2,6 @@ import { act } from "@testing-library/react";
 import { fetchResasPrefectures, fetchResasPopulation } from "./resas";
 
 describe("RESAS-API test", () => {
-
   // 都道府県一覧のデータの取得
   it("prefectures", async () => {
     const fakeResponse = {
@@ -11,12 +10,11 @@ describe("RESAS-API test", () => {
         { prefCode: 2, prefName: "青森県" },
       ],
     };
-  
-    jest.spyOn(global, "fetch").mockImplementationOnce(
-      () =>
-        Promise.resolve({
-          json: () => Promise.resolve(fakeResponse),
-        } as Response)
+
+    jest.spyOn(global, "fetch").mockImplementationOnce(() =>
+      Promise.resolve({
+        json: () => Promise.resolve(fakeResponse),
+      } as Response)
     );
 
     await act(async () => {
@@ -49,11 +47,10 @@ describe("RESAS-API test", () => {
       },
     };
 
-    jest.spyOn(global, "fetch").mockImplementationOnce(
-      () =>
-        Promise.resolve({
-          json: () => Promise.resolve(fakeResponse),
-        } as Response)
+    jest.spyOn(global, "fetch").mockImplementationOnce(() =>
+      Promise.resolve({
+        json: () => Promise.resolve(fakeResponse),
+      } as Response)
     );
 
     await act(async () => {

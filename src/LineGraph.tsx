@@ -57,7 +57,7 @@ export const LineGraph: React.FC<Props> = (props) => {
 const lineColor = (index: number) => {
   const base = index % 7;
   const level = Math.floor(index / 7) / 7;
-  const h = 360 * (base % 7) / 7;
+  const h = (360 * (base % 7)) / 7;
   const l = 60 * level + 30;
   return `hsl(${h},100%,${l}%)`;
-}
+};
