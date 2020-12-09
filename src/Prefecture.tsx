@@ -20,7 +20,7 @@ interface Props {
  * 都道府県チェックボックスリスト
  */
 export const PrefectureSelector: React.FC<Props> = (props) => {
-  if (props.prefectures === null) {
+  if (props.prefectures.length === 0) {
     return <p>Prefectures is nothing.</p>;
   }
 
@@ -31,12 +31,7 @@ export const PrefectureSelector: React.FC<Props> = (props) => {
     }))
   );
 
-  const isCheckbox = (elem: EventTarget) =>
-    (elem as HTMLInputElement).type === "checkbox";
-
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    if (e.target !== null && !isCheckbox(e.target)) return;
-
     const elem = e.target as HTMLInputElement;
 
     const nextState = {
